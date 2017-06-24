@@ -1,0 +1,28 @@
+Ubuntu version >= 16.04
+Apache version >= 2.4
+Php version >= 5.5.9
+Php request size >= 25MB
+Phpmyadmin
+mysql version >= 5.7.11
+Soap extension'unu yukle ve enable et.
+Curl extensionunu yukle ve enable et.
+gd extensionunu yukle ve enable et.
+mbstring extensionunu yukle ve enable et.
+xml extensionunu yukle ve enable et.
+mysql extensionunu yukle ve enable et.
+gettext extensionunu yukle ve enable et.
+php memory_limiti 256mb , upload max file size ý 8mb
+php ve php cli timezone Europe/Istanbul
+mcrypt extensionunu yukle ve enable et.
+	laravel-mail-activation.service dosyasý /etc/systemd/system/ klasorune kopyalanacak.
+	laravel-reset-password.service dosyasý /etc/systemd/system/ klasorune kopyalanacak.
+	laravel-purchase-mailorder.service dosyasý /etc/systemd/system/ klasorune kopyalanacak.
+	cd /etc/systemd/system
+	systemctl daemon-reload
+	systemctl enable laravel-mail-activation.service
+	systemctl enable laravel-reset-password.service
+	systemctl enable laravel-purchase-mailorder.service
+
+aþaðýdaki cron job eklenecek.
+* * * * * php /var/www/html/application/artisan schedule:run >> /dev/null 2>&1
+
